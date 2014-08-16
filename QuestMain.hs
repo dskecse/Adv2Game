@@ -1,4 +1,27 @@
-data Location = Home | FriendYard | Garden
+data Location = Home
+              | FriendYard
+              | Garden
+      deriving (Eq)
+
+-- Where to go using Walk and Go commands
+data Direction = North
+               | South
+               | West
+               | East
+       deriving (Eq)
+
+-- Player's actions
+data Action = Look
+            | Go
+            | Inventory
+            | Take
+            | Drop
+            | Investigate
+            | Quit
+            | Save
+            | Load
+            | New
+    deriving (Eq)
 
 describeLocation :: Location -> String
 describeLocation loc = case loc of
