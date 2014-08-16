@@ -9,7 +9,7 @@ data Direction = North
                | South
                | West
                | East
-       deriving (Eq)
+       deriving (Eq, Show)
 
 -- Player's actions
 data Action = Look
@@ -22,7 +22,7 @@ data Action = Look
             | Save
             | Load
             | New
-    deriving (Eq)
+    deriving (Eq, Show)
 
 describeLocation :: Location -> String
 describeLocation loc = case loc of
