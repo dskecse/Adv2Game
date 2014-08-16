@@ -31,3 +31,17 @@ describeLocation loc = show loc ++ "\n" ++
     FriendYard -> "You are standing in front of the night garden behind the small wooden fence."
     Garden     -> "You are in the garden. Garden looks very well: clean, tonsured, cool and wet."
     otherwise  -> "No description available for location with name " ++ show loc ++ "."
+
+evalAction :: Action -> String
+evalAction act = "Action: " ++ show act ++ "!"
+
+convertStringToAction :: String -> Action
+convertStringToAction str = case str of
+  "Look"    -> Look
+  "New"     -> New
+  otherwise -> Quit
+
+run = do
+  putStr "Enter command: "
+  x <- getLine
+  putStrLn (evalAction (convertStringToAction x))
