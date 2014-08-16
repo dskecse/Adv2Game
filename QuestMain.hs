@@ -2,14 +2,14 @@ data Location = Home
               | FriendYard
               | Garden
               | OtherRoom
-      deriving (Eq, Show)
+      deriving (Eq, Show, Read)
 
 -- Where to go using Walk and Go commands
 data Direction = North
                | South
                | West
                | East
-       deriving (Eq, Show)
+       deriving (Eq, Show, Read)
 
 -- Player's actions
 data Action = Look
@@ -22,7 +22,7 @@ data Action = Look
             | Save
             | Load
             | New
-    deriving (Eq, Show)
+    deriving (Eq, Show, Read)
 
 describeLocation :: Location -> String
 describeLocation loc = show loc ++ "\n" ++
@@ -36,10 +36,7 @@ evalAction :: Action -> String
 evalAction act = "Action: " ++ show act ++ "!"
 
 convertStringToAction :: String -> Action
-convertStringToAction str = case str of
-  "Look"    -> Look
-  "New"     -> New
-  otherwise -> Quit
+convertStringToAction str = read str
 
 run = do
   putStr "Enter command: "
