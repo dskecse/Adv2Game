@@ -17,6 +17,10 @@ describeObject Phone    = "The phone has some voice messages for you."
 describeObject MailBox  = "The MailBox is closed."
 describeObject obj      = "There is nothing special about " ++ show obj
 
+locationObjects :: Location -> [Object]
+locationObjects Home = [Table, Drawer, Umbrella, Phone]
+locationObjects _    = []
+
 evalAction :: Action -> String
 evalAction act = "Action: " ++ show act ++ "!"
 
