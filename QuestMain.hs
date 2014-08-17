@@ -40,7 +40,10 @@ convertStringToAction str = case reads str of
   [(x, _)] -> x
   _        -> Quit
 
-run = do
+run curLoc = do
+  putStrLn (describeLocation curLoc)
   putStr "Enter command: "
   x <- getLine
   putStrLn (evalAction (convertStringToAction x))
+  putStrLn "End of turn.\n"
+  run curLoc
