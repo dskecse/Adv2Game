@@ -9,6 +9,9 @@ run curLoc = do
   x <- getLine
   case (convertStringToAction x) of
     Quit             -> putStrLn "Be seen you..."
+    Look             -> do
+      putStrLn (describeLocation curLoc)
+      run curLoc
     Go dir           -> do
       putStrLn ("\nYou're going to " ++ show dir ++ ".\n")
       run (walk curLoc dir)
