@@ -41,19 +41,13 @@ convertStringToAction str = case reads str of
   _        -> Quit
 
 walk :: Location -> Direction -> Location
-walk curLoc toDir = case curLoc of
-  Home -> case toDir of
-    North     -> Garden
-    South     -> FriendYard
-    otherwise -> Home
-  FriendYard -> case toDir of
-    North     -> FriendYard
-    South     -> Home
-    otherwise -> Garden
-  Garden -> case toDir of
-    North     -> Home
-    South     -> Garden
-    otherwise -> FriendYard
+walk Home North       = Garden
+walk Home South       = FriendYard
+walk FriendYard North = Home
+walk FriendYard South = Garden
+walk Garden North     = FriendYard
+walk Garden South     = Home
+walk curLoc _         = curLoc
 
 run curLoc = do
   putStrLn (describeLocation curLoc)
