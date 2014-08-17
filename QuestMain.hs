@@ -44,6 +44,9 @@ run curLoc = do
   putStrLn (describeLocation curLoc)
   putStr "Enter command: "
   x <- getLine
-  putStrLn (evalAction (convertStringToAction x))
-  putStrLn "End of turn.\n"
-  run curLoc
+  case (convertStringToAction x) of
+    Quit             -> putStrLn "Be seen you..."
+    conversionResult -> do
+      putStrLn (evalAction conversionResult)
+      putStrLn "End of turn.\n"
+      run curLoc
