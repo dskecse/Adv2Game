@@ -1,6 +1,7 @@
 module Main where
 
 import Types
+import Objects
 import GameAction
 
 run :: Location -> IO ()
