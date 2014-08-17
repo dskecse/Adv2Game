@@ -15,6 +15,9 @@ run curLoc =
   x <- getLine
   case (convertStringToAction x) of
     Quit             -> putStrLn "Be seen you..."
+    Investigate obj  -> do
+      putStrLn (describeObject obj)
+      run curLoc
     Look             -> do
       putStrLn fullDescr
       run curLoc

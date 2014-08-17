@@ -19,7 +19,7 @@ data Action = Look
             | Inventory
             | Take
             | Drop
-            | Investigate
+            | Investigate Object
             | Quit
             | Save
             | Load
