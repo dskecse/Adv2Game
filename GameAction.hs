@@ -10,6 +10,13 @@ describeLocation loc = show loc ++ "\n" ++
     Garden     -> "You are in the garden. Garden looks very well: clean, tonsured, cool and wet."
     otherwise  -> "No description available for location with name " ++ show loc ++ "."
 
+describeObject :: Object -> String
+describeObject Table    = "Good wooden table with drawer."
+describeObject Umbrella = "Nice red mechanic Umbrella."
+describeObject Phone    = "The phone has some voice messages for you."
+describeObject MailBox  = "The MailBox is closed."
+describeObject obj      = "There is nothing special about " ++ show obj
+
 evalAction :: Action -> String
 evalAction act = "Action: " ++ show act ++ "!"
 
