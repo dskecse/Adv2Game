@@ -4,10 +4,12 @@ import Types
 import GameAction
 
 run :: Location -> IO ()
-run curLoc = do
-  let locDescr = describeLocation curLoc
-  let objectsDescr = enumerateObjects (locationObjects curLoc)
-  let fullDescr = locDescr ++ objectsDescr
+run curLoc =
+  let
+    locDescr = describeLocation curLoc
+    objectsDescr = enumerateObjects (locationObjects curLoc)
+    fullDescr = locDescr ++ objectsDescr
+  in do
   putStrLn fullDescr
   putStr "Enter command: "
   x <- getLine
