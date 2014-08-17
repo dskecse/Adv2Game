@@ -25,6 +25,9 @@ enumerateObjects :: [Object] -> String
 enumerateObjects []      = ""
 enumerateObjects objects = "\nThere are some objects here: " ++ show objects
 
+isVisible :: Object -> [Object] -> Bool
+isVisible obj objects = obj `elem` objects
+
 evalAction :: Action -> String
 evalAction act = "Action: " ++ show act ++ "!"
 

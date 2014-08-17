@@ -6,8 +6,9 @@ import GameAction
 run :: Location -> IO ()
 run curLoc =
   let
+    locObjects = locationObjects curLoc
     locDescr = describeLocation curLoc
-    objectsDescr = enumerateObjects (locationObjects curLoc)
+    objectsDescr = enumerateObjects locObjects
     fullDescr = locDescr ++ objectsDescr
   in do
   putStrLn fullDescr
@@ -16,7 +17,9 @@ run curLoc =
   case (convertStringToAction x) of
     Quit             -> putStrLn "Be seen you..."
     Investigate obj  -> do
-      putStrLn (describeObject obj)
+      if (isVisible obj locObjects)
+        then putStrLn (describeObject obj)
+        else putStrLn ("You can't see any " ++ show obj ++ " here.")
       run curLoc
     Look             -> do
       putStrLn fullDescr
