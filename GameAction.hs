@@ -21,6 +21,10 @@ locationObjects :: Location -> [Object]
 locationObjects Home = [Table, Drawer, Umbrella, Phone]
 locationObjects _    = []
 
+enumerateObjects :: [Object] -> String
+enumerateObjects []      = ""
+enumerateObjects objects = "\nThere are some objects here: " ++ show objects
+
 evalAction :: Action -> String
 evalAction act = "Action: " ++ show act ++ "!"
 
