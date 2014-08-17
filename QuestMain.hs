@@ -13,7 +13,7 @@ data Direction = North
 
 -- Player's actions
 data Action = Look
-            | Go
+            | Go Direction
             | Inventory
             | Take
             | Drop
@@ -46,6 +46,7 @@ run curLoc = do
   x <- getLine
   case (convertStringToAction x) of
     Quit             -> putStrLn "Be seen you..."
+    Go dir           -> putStrLn ("You're going to " ++ show dir ++ "!")
     conversionResult -> do
       putStrLn (evalAction conversionResult)
       putStrLn "End of turn.\n"
