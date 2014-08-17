@@ -1,3 +1,5 @@
+module Main where
+
 data Location = Home
               | FriendYard
               | Garden
@@ -62,3 +64,7 @@ run curLoc = do
       putStrLn (evalAction conversionResult)
       putStrLn "End of turn.\n"
       run curLoc
+
+main = do
+  putStrLn "Quest adventure on Haskell."
+  run Home
