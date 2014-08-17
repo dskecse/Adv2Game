@@ -5,7 +5,6 @@ import GameAction
 
 run :: Location -> IO ()
 run curLoc = do
-  locDescr <- return (describeLocation curLoc)
   putStrLn locDescr
   putStr "Enter command: "
   x <- getLine
@@ -21,6 +20,8 @@ run curLoc = do
       putStrLn (evalAction conversionResult)
       putStrLn "End of turn.\n"
       run curLoc
+  where
+    locDescr = describeLocation curLoc
 
 main = do
   putStrLn "Quest adventure on Haskell."
