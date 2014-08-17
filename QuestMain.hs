@@ -40,6 +40,21 @@ convertStringToAction str = case reads str of
   [(x, _)] -> x
   _        -> Quit
 
+walk :: Location -> Direction -> Location
+walk curLoc toDir = case curLoc of
+  Home -> case toDir of
+    North     -> Garden
+    South     -> FriendYard
+    otherwise -> Home
+  FriendYard -> case toDir of
+    North     -> FriendYard
+    South     -> Home
+    otherwise -> Garden
+  Garden -> case toDir of
+    North     -> Home
+    South     -> Garden
+    otherwise -> FriendYard
+
 run curLoc = do
   putStrLn (describeLocation curLoc)
   putStr "Enter command: "
