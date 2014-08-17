@@ -55,7 +55,9 @@ run curLoc = do
   x <- getLine
   case (convertStringToAction x) of
     Quit             -> putStrLn "Be seen you..."
-    Go dir           -> putStrLn ("You're going to " ++ show dir ++ "!")
+    Go dir           -> do
+      putStrLn ("\nYou're going to " ++ show dir ++ ".\n")
+      run (walk curLoc dir)
     conversionResult -> do
       putStrLn (evalAction conversionResult)
       putStrLn "End of turn.\n"
