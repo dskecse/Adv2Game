@@ -33,5 +33,5 @@ run curLoc =
       run curLoc
 
 main = do
-  putStrLn "Quest adventure on Haskell."
+  putStrLn "Quest adventure on Haskell.\n"
   run Home
