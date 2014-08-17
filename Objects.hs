@@ -17,5 +17,7 @@ enumerateObjects :: [Object] -> String
 enumerateObjects []      = ""
 enumerateObjects objects = "\nThere are some objects here: " ++ show objects
 
-isVisible :: Object -> [Object] -> Bool
-isVisible obj objects = obj `elem` objects
+investigate :: Object -> [Object] -> String
+investigate obj objects = case (obj `elem` objects) of
+  True  -> describeObject obj
+  False -> "You can't see any " ++ show obj ++ " here."

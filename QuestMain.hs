@@ -19,9 +19,7 @@ run curLoc =
   case (convertStringToAction x) of
     Quit             -> putStrLn "Be seen you..."
     Investigate obj  -> do
-      if (isVisible obj locObjects)
-        then putStrLn (describeObject obj)
-        else putStrLn ("You can't see any " ++ show obj ++ " here.")
+      putStrLn (investigate obj locObjects)
       run curLoc
     Look             -> do
       putStrLn fullDescr
