@@ -5,6 +5,6 @@ Advanced Adventure Game on Haskell
 ## Installation
 
 ```
-ghc -O QuestMain.hs
+ghc -O -Wall QuestMain.hs
 ./QuestMain
 ```
