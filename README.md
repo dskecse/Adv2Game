@@ -1,6 +1,6 @@
 # Adv2Game
 
-Advanced Adventure Game on Haskell
+Advanced Adventure Game in Haskell
 
 ## Installation
 
